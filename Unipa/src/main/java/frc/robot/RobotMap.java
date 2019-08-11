@@ -10,6 +10,8 @@ package frc.robot;
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 //import edu.wpi.first.wpilibj.SPI;
 //import edu.wpi.first.wpilibj.TimedRobot;
@@ -59,6 +61,11 @@ public class RobotMap {
   public static double Ki = 0.00;
   public static double Kd = 2000;
 
+  static UsbCamera camera0;
+  static UsbCamera camera1;
+  
+  public static int n;
+
 
 
 /**
@@ -69,7 +76,10 @@ public class RobotMap {
   public static void init() {
 
 
-    
+    camera0 = CameraServer.getInstance().startAutomaticCapture(0);
+    camera1 = CameraServer.getInstance().startAutomaticCapture(1);
+    camera0.setResolution(160, 120);
+    camera1.setResolution(160, 120);
     wheel_l = new WPI_TalonSRX(3);
     wheel_r = new WPI_TalonSRX(1);
     wheel_l_2 = new WPI_VictorSPX(3);
@@ -86,9 +96,10 @@ public class RobotMap {
     
     intake_l = new WPI_VictorSPX(1);
     intake_r = new WPI_VictorSPX(6);
-    intake_l.setInverted(true);
+    intake_l.setInverted(false);
     intake = new SpeedControllerGroup(intake_l, intake_r);
     
     int inversion = 0;
+    int n = 1;
   }
 }

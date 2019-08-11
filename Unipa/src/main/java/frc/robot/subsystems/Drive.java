@@ -40,7 +40,7 @@ public class Drive extends Subsystem {
     if(SpeedF > 0.3 && SpeedB == 0){
       RobotMap.m_robotDrive.curvatureDrive(SpeedF * mult * turn, Rotation * mult, isQuickTurn);
     }else if(SpeedF == 0 && SpeedB > 0.3){
-      RobotMap.m_robotDrive.curvatureDrive(SpeedB * mult * turn, Rotation * mult, isQuickTurn);
+      RobotMap.m_robotDrive.curvatureDrive(SpeedB * mult * turn * -1 , Rotation * mult, isQuickTurn);
     }else if(Rotation != 0){
       RobotMap.m_robotDrive.arcadeDrive(0, Rotation * mult); 
     }else{
@@ -49,11 +49,14 @@ public class Drive extends Subsystem {
 
   }
 
-  public int inversed(boolean button){
-    if(button){
-      return -1;
-    }else{
-      return 1;
+  public void inversed(boolean cargo, boolean panel){
+
+    if(cargo){
+      RobotMap.inversion = -1;
+    }else if(panel){
+      RobotMap.inversion = 1;
+    }
+    else{
     }
   }
 

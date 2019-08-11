@@ -26,7 +26,7 @@ public class LiftWithAxis extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.lift.lift(Robot.m_oi.m_stick_control.getRawAxis(2), Robot.m_oi.m_stick_control.getRawAxis(3), 0.5);
+    Robot.lift.lift(Robot.m_oi.m_stick_control.getRawAxis(3), Robot.m_oi.m_stick_control.getRawAxis(2), 0.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()

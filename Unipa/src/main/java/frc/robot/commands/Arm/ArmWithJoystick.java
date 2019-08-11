@@ -26,9 +26,9 @@ public class ArmWithJoystick extends Command {
   protected void execute() {
 
     if(Robot.m_oi.m_stick_control.getRawAxis(1) > 0.3 || Robot.m_oi.m_stick_control.getRawAxis(1) < -0.3){
-      Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(1), 0.5);
+      Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(1), -0.6);
     }else if(Robot.m_oi.m_stick_control.getRawAxis(5) > 0.3 || Robot.m_oi.m_stick_control.getRawAxis(5) < -0.3){
-      Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(1), 0.5);
+      Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(5), -0.6);
     }else{
       Robot.arm.arm(0, 0);
     }

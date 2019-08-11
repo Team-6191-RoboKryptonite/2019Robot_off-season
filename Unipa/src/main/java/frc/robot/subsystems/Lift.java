@@ -37,7 +37,7 @@ public class Lift extends Subsystem {
     if(SpeedUp > 0.3 && SpeedDown == 0){
       RobotMap.lift.set(SpeedUp * mult);
     }else if(SpeedUp == 0 && SpeedDown > 0.3){
-      RobotMap.lift.set(SpeedUp * (mult - 1));
+      RobotMap.lift.set(-1 * SpeedDown * (mult - 0.1));
     }else{
       RobotMap.lift.set(0);
     }

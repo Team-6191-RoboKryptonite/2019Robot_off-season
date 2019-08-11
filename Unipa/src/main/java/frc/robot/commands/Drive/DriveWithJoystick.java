@@ -27,9 +27,11 @@ public class DriveWithJoystick extends Command {
   @Override
   protected void execute() {
 
-    RobotMap.inversion = Robot.drive.inversed(Robot.m_oi.m_stick_drive.getRawButtonPressed(5));
-    Robot.drive.drive(Robot.m_oi.m_stick_drive.getRawAxis(2), Robot.m_oi.m_stick_drive.getRawAxis(3),
-                     Robot.m_oi.m_stick_drive.getRawAxis(0), Robot.m_oi.d_RB.get(), 0.7, RobotMap.inversion);
+    //RobotMap.inversion = Robot.drive.inversed(Robot.m_oi.m_stick_drive.getRawButtonPressed(5));
+    //System.out.println(RobotMap.inversion);
+    Robot.drive.inversed(Robot.m_oi.d_A.get(), Robot.m_oi.d_Y.get());
+    Robot.drive.drive(Robot.m_oi.m_stick_drive.getRawAxis(3), Robot.m_oi.m_stick_drive.getRawAxis(2),
+                     Robot.m_oi.m_stick_drive.getRawAxis(0), Robot.m_oi.d_LB.get(), 0.7, RobotMap.inversion);
     
   }
 
