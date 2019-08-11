@@ -9,6 +9,7 @@ package frc.robot.commands.Drive;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class DriveWithJoystick extends Command {
   public DriveWithJoystick() {
@@ -25,7 +26,11 @@ public class DriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drive.drive(Robot.m_oi.m_stick_drive.getRawAxis(5), Robot.m_oi.m_stick_drive.getRawAxis(0));
+
+    RobotMap.inversion = Robot.drive.inversed(Robot.m_oi.m_stick_drive.getRawButtonPressed(5));
+    Robot.drive.drive(Robot.m_oi.m_stick_drive.getRawAxis(2), Robot.m_oi.m_stick_drive.getRawAxis(3),
+                     Robot.m_oi.m_stick_drive.getRawAxis(0), Robot.m_oi.d_RB.get(), 0.7, RobotMap.inversion);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

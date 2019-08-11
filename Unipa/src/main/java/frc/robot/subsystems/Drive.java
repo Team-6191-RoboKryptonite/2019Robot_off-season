@@ -14,21 +14,52 @@ import frc.robot.commands.Drive.DriveWithJoystick;
 /**
  * Add your docs here.
  */
+
 public class Drive extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public void drive(double Speed, double Rotation){
+  
+  /**
+   * Function for drive, use curvatureDrive
+	 * @param SpeedF Axis to go ahead.
+   * @param SpeedB Axis to go Back.
+   * @param Rotation Axis to turn around.
+   * @param isQuickTurn set true if you want to Quick.
+   * @param mult the limit of speed.
+   * @param turn the cargo and panel side inversed.
+	 */
+  public void drive(double SpeedF, double SpeedB, double Rotation, boolean isQuickTurn, double mult, int turn){
 
-    double Rspd = Speed * -1 - Rotation;
-    double Lspd = Speed * -1 + Rotation;
-    if(Speed == 0){
-      RobotMap.m_robotDrive.arcadeDrive(0, Rotation * 0.5);
+    // double Rspd = Speed * -1 - Rotation;
+    // double Lspd = Speed * -1 + Rotation;
+    // if(Speed == 0){
+    //   RobotMap.m_robotDrive.arcadeDrive(0, Rotation * 0.5);
+    // }else{
+    //   RobotMap.m_robotDrive.tankDrive(Lspd * 0.5, Rspd * 0.5);
+    // }
+    if(SpeedF > 0.3 && SpeedB == 0){
+      RobotMap.m_robotDrive.curvatureDrive(SpeedF * mult * turn, Rotation * mult, isQuickTurn);
+    }else if(SpeedF == 0 && SpeedB > 0.3){
+      RobotMap.m_robotDrive.curvatureDrive(SpeedB * mult * turn, Rotation * mult, isQuickTurn);
+    }else if(Rotation != 0){
+      RobotMap.m_robotDrive.arcadeDrive(0, Rotation * mult); 
     }else{
-      RobotMap.m_robotDrive.tankDrive(Lspd * 0.5, Rspd * 0.5);
+      RobotMap.m_robotDrive.stopMotor();
     }
-    
 
   }
+
+  public int inversed(boolean button){
+    if(button){
+      return -1;
+    }else{
+      return 1;
+    }
+  }
+
+
+   
+  
 
   @Override
   public void initDefaultCommand() {

@@ -24,7 +24,16 @@ public class ArmWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(1));
+
+    if(Robot.m_oi.m_stick_control.getRawAxis(1) > 0.3 || Robot.m_oi.m_stick_control.getRawAxis(1) < -0.3){
+      Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(1), 0.5);
+    }else if(Robot.m_oi.m_stick_control.getRawAxis(5) > 0.3 || Robot.m_oi.m_stick_control.getRawAxis(5) < -0.3){
+      Robot.arm.arm(Robot.m_oi.m_stick_control.getRawAxis(1), 0.5);
+    }else{
+      Robot.arm.arm(0, 0);
+    }
+
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

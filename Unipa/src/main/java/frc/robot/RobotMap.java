@@ -10,6 +10,8 @@ package frc.robot;
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+//import edu.wpi.first.wpilibj.SPI;
 //import edu.wpi.first.wpilibj.TimedRobot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -35,7 +37,7 @@ public class RobotMap {
   
   public static WPI_TalonSRX wheel_l;
   public static WPI_TalonSRX wheel_r;
-  public static  WPI_VictorSPX wheel_l_2;
+  public static WPI_VictorSPX wheel_l_2;
   public static WPI_VictorSPX wheel_r_2;
   public static DifferentialDrive m_robotDrive;
   
@@ -49,7 +51,14 @@ public class RobotMap {
   
   public static WPI_VictorSPX arm_panel;
 
+  public static ADXRS450_Gyro gyro;
+
   public static int inversion;
+    
+  public static double Kp = 0.07;
+  public static double Ki = 0.00;
+  public static double Kd = 2000;
+
 
 
 /**
@@ -79,6 +88,7 @@ public class RobotMap {
     intake_r = new WPI_VictorSPX(6);
     intake_l.setInverted(true);
     intake = new SpeedControllerGroup(intake_l, intake_r);
-    inversion = 1;
+    
+    int inversion = 0;
   }
 }

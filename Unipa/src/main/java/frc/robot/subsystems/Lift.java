@@ -17,9 +17,30 @@ import frc.robot.commands.Lift.LiftWithAxis;
 public class Lift extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.et
-  public void lift(double power){
 
-    RobotMap.lift.set(power * -0.5);
+
+  /**
+   * 
+   * @param Speedup
+   * @param Speeddown
+   * @param mult
+   */
+  public void lift(double SpeedUp,double SpeedDown, double mult){
+
+    // double Rspd = Speed * -1 - Rotation;
+    // double Lspd = Speed * -1 + Rotation;
+    // if(Speed == 0){
+    //   RobotMap.m_robotDrive.arcadeDrive(0, Rotation * 0.5);
+    // }else{
+    //   RobotMap.m_robotDrive.tankDrive(Lspd * 0.5, Rspd * 0.5);
+    // }
+    if(SpeedUp > 0.3 && SpeedDown == 0){
+      RobotMap.lift.set(SpeedUp * mult);
+    }else if(SpeedUp == 0 && SpeedDown > 0.3){
+      RobotMap.lift.set(SpeedUp * (mult - 1));
+    }else{
+      RobotMap.lift.set(0);
+    }
   }
 
   @Override

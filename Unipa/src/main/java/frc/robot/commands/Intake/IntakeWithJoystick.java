@@ -24,7 +24,7 @@ public class IntakeWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.intake(Robot.m_oi.A.get(), Robot.m_oi.B.get());
+    Robot.intake.intake(Robot.m_oi.X.get(), Robot.m_oi.B.get());
   }
 
   // Make this return true when this Command no longer needs to run execute()

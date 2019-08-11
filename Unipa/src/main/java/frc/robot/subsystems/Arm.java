@@ -17,9 +17,14 @@ import frc.robot.commands.Arm.ArmWithJoystick;
 public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public void arm(double power){
+  /**
+   * 
+   * @param power power.
+   * @param mult the limit of speed.
+   */
+  public void arm(double power, double mult){
 
-    RobotMap.arm_panel.set(power * 0.5);
+    RobotMap.arm_panel.set(power * mult);
   }
 
   @Override
