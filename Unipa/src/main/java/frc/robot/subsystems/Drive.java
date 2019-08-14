@@ -28,7 +28,7 @@ public class Drive extends Subsystem {
    * @param mult the limit of speed.
    * @param turn the cargo and panel side inversed.
 	 */
-  public void drive(double SpeedF, double SpeedB, double Rotation, boolean isQuickTurn, double mult, int turn){
+  public void drive(double SpeedF, double SpeedB, double Rotation, double smallRotation, boolean isQuickTurn, double mult, int turn){
 
     // double Rspd = Speed * -1 - Rotation;
     // double Lspd = Speed * -1 + Rotation;
@@ -43,6 +43,8 @@ public class Drive extends Subsystem {
       RobotMap.m_robotDrive.curvatureDrive(SpeedB * mult * turn * -1 , Rotation * mult, isQuickTurn);
     }else if(Rotation != 0){
       RobotMap.m_robotDrive.arcadeDrive(0, Rotation * mult); 
+    }else if(smallRotation != 0){
+      RobotMap.m_robotDrive.arcadeDrive(0, smallRotation * mult * 0.6);
     }else{
       RobotMap.m_robotDrive.stopMotor();
     }
