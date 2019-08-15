@@ -54,7 +54,8 @@ public class RobotMap {
   
   public static WPI_VictorSPX arm_panel;
 
-  public static Solenoid cylinder;
+  public static Solenoid cylinder_l;
+  public static Solenoid cylinder_r;
 
   public static ADXRS450_Gyro gyro;
 
@@ -95,11 +96,11 @@ public class RobotMap {
     lift = new SpeedControllerGroup(lift_one, lift_two);
     
     arm_panel = new WPI_VictorSPX(5);
-    cylinder = new Solenoid(0);
-    
+    cylinder_l= new Solenoid(0);
+    cylinder_r= new Solenoid(1);
     intake_l = new WPI_VictorSPX(1);
     intake_r = new WPI_VictorSPX(6);
-    intake_l.setInverted(false);
+    intake_l.setInverted(true);
     intake = new SpeedControllerGroup(intake_l, intake_r);
     inversion = 1;
   }

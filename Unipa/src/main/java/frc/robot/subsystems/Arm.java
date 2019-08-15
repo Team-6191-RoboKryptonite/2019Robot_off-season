@@ -34,11 +34,13 @@ public class Arm extends Subsystem {
   public void push(boolean open, boolean close){
      if(open)
      {
-        RobotMap.cylinder.set(true);
+        RobotMap.cylinder_l.set(true);
+        RobotMap.cylinder_r.set(true);
     }
     else if(close)
     {
-        RobotMap.cylinder.set(false);
+        RobotMap.cylinder_l.set(false);
+        RobotMap.cylinder_r.set(false);
     }
   }
   @Override

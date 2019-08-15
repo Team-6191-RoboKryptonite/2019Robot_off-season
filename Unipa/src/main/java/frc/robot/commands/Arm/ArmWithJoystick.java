@@ -32,7 +32,7 @@ public class ArmWithJoystick extends Command {
     }else{
       Robot.arm.arm(0, 0);
     }
-    Robot.arm.push(Robot.m_oi.Y.get(), Robot.m_oi.A.get());
+    Robot.arm.push(Robot.m_oi.A.get(), Robot.m_oi.Y.get());
 
     
   }
