@@ -22,7 +22,7 @@ public class Intake extends Subsystem {
     if(in){
       RobotMap.intake.set(0.3);
     }else if(out){
-      RobotMap.intake.set(-0.3);
+      RobotMap.intake.set(-0.25);
     }else{
       RobotMap.intake.set(0);
     }

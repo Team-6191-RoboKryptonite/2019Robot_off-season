@@ -44,7 +44,7 @@ public class Drive extends Subsystem {
     }else if(Rotation != 0){
       RobotMap.m_robotDrive.arcadeDrive(0, Rotation * mult); 
     }else if(smallRotation != 0){
-      RobotMap.m_robotDrive.arcadeDrive(0, smallRotation * mult * 0.6);
+      RobotMap.m_robotDrive.arcadeDrive(0, smallRotation * mult * 0.7);
     }else{
       RobotMap.m_robotDrive.stopMotor();
     }

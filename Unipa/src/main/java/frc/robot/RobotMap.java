@@ -96,8 +96,8 @@ public class RobotMap {
     lift = new SpeedControllerGroup(lift_one, lift_two);
     
     arm_panel = new WPI_VictorSPX(5);
-    cylinder_l= new Solenoid(0);
-    cylinder_r= new Solenoid(1);
+    cylinder_l= new Solenoid(3);
+    cylinder_r= new Solenoid(7);
     intake_l = new WPI_VictorSPX(1);
     intake_r = new WPI_VictorSPX(6);
     intake_l.setInverted(true);

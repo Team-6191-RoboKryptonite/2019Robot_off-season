@@ -43,6 +43,12 @@ public class Arm extends Subsystem {
         RobotMap.cylinder_r.set(false);
     }
   }
+  
+  public void pushBack(boolean open){
+    RobotMap.cylinder_l.set(open);
+    RobotMap.cylinder_r.set(open);
+  }
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
